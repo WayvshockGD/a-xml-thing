@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<start xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+    <head>
+        <version>1.0</version>
+        <yearCreated>2021</yearCreated>
+    </head>
+
+    <types>
+        <filesPaths>
+            ["./src/Modules.xml"]
+            ["./src/xml/ES.xml"]
+            ["./Manager.xml"]
+            <jsFiles>
+                ["./src/js/Module.js"]
+            </jsFiles>
+            <tsFiles>
+                ["./src/ts/Module.ts"]
+            </tsFiles>
+        </filesPaths>
+
+        <moduleTypes>
+            start
+            stop
+            pause
+            <plugins>
+                start::begin
+                stop::end
+                pause::end/begin
+            </plugins>
+        </moduleTypes>
+    </types>
+
+    <plugins>
+        <managerListener>
+            <xsl:listen name="Listen" type="managerListen, Find">
+                ["./src/Manager"]
+            </xsl:listen>
+        </managerListener>
+    </plugins>
+</start>
